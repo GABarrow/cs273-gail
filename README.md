@@ -1,6 +1,5 @@
 # cs273-gail
 cs273 semester project fall 2026
-# cs273-gail
 # CS 273 - Database Systems
 cs273 semester project fall 2026
 **Student:** Gail Barrowclough
