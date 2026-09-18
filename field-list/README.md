@@ -3,13 +3,13 @@
 ## Data Fields
 | Field | Why Needed | Notes / Uncertainty |
 |---|---|---|
-| Author_ID | Unique identifier for each author ||
+| Author_ID (PK)| Unique identifier for each author ||
 | Author_Last | Author Information |  |
 | Author_First | Author Information | |
 
 | Field | Why Needed | Notes / Uncertainty |
 |---|---|---|
-| Book_ID | Link book to author |  |
+| Book_ID (PK)| Link book to author |  |
 | Book_Title | Book Information |  |
 | Book_Series | Link books to one another and author |  |
 | Book_# | Placement of book in series ||
@@ -17,7 +17,7 @@
 
 | Field | Why Needed | Notes / Uncertainty |
 |---|---|---|
-| Character_ID| Link Character to book(s) |  |
+| Character_ID (PK)| Link Character to book(s) |  |
 | Character_Last | Character Information |  |
 | Character_First | Character Information |  |
 | Character_Race | Character Informmation (Elf, hobbit, human, etc.) |  |
@@ -41,4 +41,4 @@
 ## Calculated Fields (Do NOT Store)
 | Field | Derivation |
 |---|---|
-|  |  |
+| Author_Full_Name | = Author_First + Author_Middle + Author_Last |
