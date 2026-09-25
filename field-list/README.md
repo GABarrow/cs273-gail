@@ -9,7 +9,7 @@
 | User_Middle | VARCHAR (50) | NULL | - | Not every author uses a middle name |
 | User_Email | VARCHAR (254) | NOT NULL | - | UNIQUE |
 | User_Phone | VARCHAR (20) | NOT NULL | - | Not INT - Preserves formatting |
-| User_Join_Date | DATE | NOT NULL | CURRENT_DATE | Set Automatically on Insert |
+| User_Join_Date | TIMESTAMP | NOT NULL | CURRENT_DATE | on Creation, CHECK that is today or after|
 | User_Date_of_Birth | DATE  | NOT NULL | - |  |
 
 ## Authors-This is a single subject table to track authors.
@@ -24,8 +24,8 @@
 | Field | Type | Null? | Default | Notes / Constraints |
 |---|---|---|---|---|
 | Book_Series_ID (PK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Author_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
-| Book_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Author_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Book_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Book_Series_Title| TINYTEXT | NOT NULL | - |  |
 | Book_Series_Title| TINYTEXT | NULL | - | Not every book series has a series subtitle  |
 
@@ -33,18 +33,18 @@
 | Field | Type | Null? | Default | Notes / Constraints |
 |---|---|---|---|---|
 | Book_ID (PK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Author_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
-| Book_Series_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Author_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Book_Series_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Book_Title | TINYTEXT| NOT NULL | - |  |
 | Book_Sub-Title | TINYTEXT | NULL | - | Not every book a subtitle |
-| Book_# | INT SIGNED | NOT NULL | DECIMAL (5,2) | Allows for prequels to be indicated as negative numbers and books written to be placed between two others in the series |
-| Book_Publication_Year | INT UNSIGNED | NOT NULL | YEAR | |
+| Book_# | DECIMAL (5,2) | NOT NULL | | CHECK (cannot equal 0) |
+| Book_Publication_Year | INT UNSIGNED | NOT NULL | YEAR | CHECK must be before today|
 
 ## Characters-This is a single subject table to track characters and link them to their books and series via foreign keys.
 | Field | Type | Null? | Default | Notes / Constraints |
 |---|---|---|---|---|
 | Character_ID (PK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Book_Series_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Book_Series_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Book_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Character_Last_Name | VARCHAR (50) | NULL | - | Not all characters have last names |
 | Character_First_Name | VARCHAR (50) | NOT NULL | - | |
@@ -54,7 +54,7 @@
 | Field | Type | Null? | Default | Notes / Constraints |
 |---|---|---|---|---|
 | Character_Title_ID (PK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Character_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Character_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Character_Title_Name| VARCHAR (50) | NOT NULL| - |  |
 | Character_Title_Extended_Name| TINYTEXT | NOT NULL| - |  |
 
@@ -62,15 +62,15 @@
 | Field | Type | Null? | Default | Notes / Constraints |
 |---|---|---|---|---|
 | Race_ID (PK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Character_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
-| Race_Name| VARCHAR (50) | NOT NULL| - |  |
+| Character_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Race_Name| VARCHAR (50) | NOT NULL| - | CHECK Status IN (A, B, C))|
 | Race_Description | TINYTEXT | NOT NULL| - |  |
 
 ## Relationships-This is a linking table to track relationships between characters via foreign keys.
 | Field | Type | Null? | Default | Notes / Constraints |
 |---|---|---|---|---|
 | Relationship_ID (PK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Character_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Character_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Relationship_Name | VARCHAR (50) | NOT NULL| - |  |
 
 ## Actions-This is a single subject table to track character actions via foreign keys.
@@ -88,8 +88,8 @@
 | Book_ID (FK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Location_Name | TINYTEXT | NOT NULL | | |
 | Location_Description | TEXT| NOT NULL | | |
-| Location_Characteristics | Location Information |  |
-| Location_Rating | Rates location according to scale | May need to create rating table/tables |
+| Location_Characteristics | TEXT | NOT NULL | |
+| Location_Rating | INT UNSIGNED | NOT NULL | CHECK (Cannot be 0)|
 
 ## Themes-This is a single subject table to track themes and link them to their books via a foreign key.
 | Field | Type | Null? | Default | Notes / Constraints |
