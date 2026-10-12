@@ -23,7 +23,7 @@
 ## Series-This is a single subject table to track series and link them to their authors and books via foreign keys.
 | Field | Type | Null? | Default | Notes / Constraints |
 |---|---|---|---|---|
-| BookSeriesID (PK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| SeriesID (PK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | PK - surrogate, auto-assigned |
 | AuthorID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | BookID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | BookSeriesTitle| TINYTEXT | NOT NULL | - |  |
@@ -36,7 +36,7 @@
 | AuthorID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | BookSeriesID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | BookTitle | TINYTEXT| NOT NULL | - |  |
-| BookSub-Title | TINYTEXT | NULL | - | Not every book a subtitle |
+| BookSub-Title | TINYTEXT | NULL | - | Not every book has a subtitle |
 | Book# | DECIMAL (5,2) | NOT NULL | | CHECK (cannot equal 0) |
 | BookPublicationYear | INT UNSIGNED | NOT NULL | YEAR | CHECK must be before today|
 
