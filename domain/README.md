@@ -8,4 +8,4 @@ Record common literary themes.
 Track thematic connections between books.  
 Track character similarities between books.
 ## Domain Description
-This database is designed to be used by literature students and teachers at Hannibal-LaGrange University. Users will be able to decide whether to compare just themes, just characters, or both. A relational database design has been chosen to allow for addition of new book titles, authors, and information to appropriate tables without having to rebuild the database. 
+This database is designed to be parents whose children read popular fiction. Parents will be able to decide whether a book is appropriate for their child based upon the character actions and book themes. A relational database design has been chosen to allow for addition of new book titles, authors, and information to appropriate tables without having to rebuild the database. 
