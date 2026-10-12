@@ -27,7 +27,7 @@
 | Author_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Book_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Book_Series_Title| TINYTEXT | NOT NULL | - |  |
-| Book_Series_Title| TINYTEXT | NULL | - | Not every book series has a series subtitle  |
+| Book_Series_SubTitle| TINYTEXT | NULL | - | Not every book series has a series subtitle  |
 
 ## Books-This is a single subject table to track books and link them to their authors and series via foreign keys.
 | Field | Type | Null? | Default | Notes / Constraints |
