@@ -1,6 +1,6 @@
 # Phase 1 — Domain
 ## Mission Statement
-This database will allow students and teachers at Hannibal-LaGrange University to compare and contrast themes and characters across various works of popular fantasy fiction.
+This database will allow parents to select popular fantasy fiction books appropriate to their child based upon book themes and content.
 ## Mission Objectives
 Record the series, title, and author of each book.  
 Record character names and their characteristics.  
