@@ -1,6 +1,6 @@
 # Phase 1 — Domain
 ## Mission Statement
-This database will allow parents to select popular fantasy fiction books appropriate to their child based upon book themes and content.
+This database will allow parents to select popular fantasy fiction books appropriate to their child based upon book themes and character actions.
 ## Mission Objectives
 Record the series, title, and author of each book.  
 Record character names and their characteristics.  
