@@ -49,12 +49,6 @@
 | Character_Last_Name | VARCHAR (50) | NULL | - | Not all characters have last names |
 | Character_First_Name | VARCHAR (50) | NOT NULL | - | |
 | Character_Middle_Name | VARCHAR (50) | NULL | - | Not all characters have middle names |
-
-## Character Title-This is a linking table to track titles, such as king, throne warden, etc. and connect them to their characters via foreign keys.
-| Field | Type | Null? | Default | Notes / Constraints |
-|---|---|---|---|---|
-| Character_Title_ID (PK)| INT UNSIGNED | NOT NULL| AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Character_ID (FK)| INT UNSIGNED | NULL| AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Character_Title_Name| VARCHAR (50) | NOT NULL| - |  |
 | Character_Title_Extended_Name| TINYTEXT | NOT NULL| - |  |
 
